@@ -6,7 +6,7 @@
 4. Ephrem Alemayehu - UGR/4365/12
 
 ## DESCRIPTION
--What we intend to create is a mobile application platform which servers as an agent to help university students find companies that provides internship offers in Addis Ababa.
+- What we intend to create is a mobile application platform which servers as an agent to help university students find companies that provides internship offers in Addis Ababa.
 - It also provides swift communication methods between the companies and students.
 - Our application intends to solve local issues that every student encounters when they try to apply for an intership through methods which involves digitalization and get rid of paperworks and manual labours.
 - It simplifies the path in which companies filter their preferences for intern students, which could be through their fields of study, grades or other qualities.  
