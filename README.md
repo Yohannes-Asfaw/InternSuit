@@ -1,5 +1,5 @@
 # InternSuit
-# GROUP MEMBERS
+## GROUP MEMBERS
 1. Yohannes Asfaw - UGR/0327/12
 2. Dagemawi Yesuf - UGR/3493/12
 3. Hailemariam Kefale - UGR/0652/12
