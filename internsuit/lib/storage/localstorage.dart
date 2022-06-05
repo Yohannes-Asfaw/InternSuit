@@ -13,6 +13,8 @@ class TokenStorage {
 
   static Future<String?> getUserToken(String token) async =>
       await _storage.read(key: _usertoken);
+  static delettoken() async =>
+      await _storage.deleteAll();
       
   static Future<String?> getUser(String token) async =>
       await _storage.read(key: _user);

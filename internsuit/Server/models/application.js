@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
 const jwt = require('jsonwebtoken')
-const config = require('config')
 const { join } = require('lodash')
 const {User} = require('../models/users')
 const { required } = require('joi')

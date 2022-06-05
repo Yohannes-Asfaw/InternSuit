@@ -134,7 +134,7 @@ if (state is CompanyOperationFailure) {
                                       ).show();
                            }
                              else if (state is CompanyOperationSuccess) {
-                                        context.go('/Login');
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView(),));
                 
                            }
 
@@ -149,7 +149,7 @@ if (state is CompanyOperationFailure) {
                           alignment: Alignment.center,
                           padding: const EdgeInsets.all(10),
                           child: const Text(
-                            "hello world",
+                            "wellcome",
                             style: TextStyle(
                                 fontSize: 60,
                                 fontFamily: 'DancingScript',
@@ -410,7 +410,7 @@ if (state is CompanyOperationFailure) {
                 
                               if (_formKey.currentState!.validate()) {
                 
-                                                     BlocProvider.of<CompanyBloc>(context).add( CompanyCreate(
+                        BlocProvider.of<CompanyBloc>(context).add( CompanyCreate(
                                   Company(
             companyname : companyname,
             password :password,
@@ -418,47 +418,7 @@ if (state is CompanyOperationFailure) {
             address : address,
             
             dedicatedfield : dedicatedfield) ));
-                              
-                           
-                                // final response = await http.post(
-                                //   Uri.parse('http://127.0.0.1:3000/reg/company'),
-                                //   headers: <String, String>{
-                                //     'Content-Type':
-                                //         'application/json; charset=UTF-8',
-                                        
-                                //   },
-                                //   body: jsonEncode(<String, String>{
-                                //     'password': password,
-                                //     'company_name': companyname,
-                                //     'Company_website': companywebsite,
-                                //     'dedicated_field': dedicatedfield,
-                                //     'Address': address,
-                                //   }),
-                                // );
-                                // if (response.statusCode == 409) {
-                                //   const snackBar = SnackBar(
-                                //       content: Text('Company already registered'),
-                                //       backgroundColor: Colors.red,
-                                //       duration: Duration(milliseconds: 500));
-                                //   ScaffoldMessenger.of(context)
-                                //       .showSnackBar(snackBar);
-                                // } else if (response.statusCode == 400) {
-                                //   const snackBar = SnackBar(
-                                //       content:
-                                //           Text('Please fill the Dedicated Field'),
-                                //       backgroundColor: Colors.red,
-                                //       duration: Duration(milliseconds: 500));
-                                //   ScaffoldMessenger.of(context)
-                                //       .showSnackBar(snackBar);
-                                // } else if (response.statusCode == 200) {
-                                //   Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => const LoginView()),
-                                //   );
-                
-                                //   check = 1;
-                                // }
+                                  
                               }
                             },
                           )),
@@ -489,11 +449,7 @@ if (state is CompanyOperationFailure) {
                               style: TextStyle(color: Colors.white, fontSize: 20),
                             ),
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LoginView()),
-                              );
+                              context.go('/CompanyLogin');
                             },
                     ))
            ]);})]))));

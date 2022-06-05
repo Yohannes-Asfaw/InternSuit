@@ -11,6 +11,8 @@ import 'package:mynotes/user/blocs/user_state.dart';
 import 'package:mynotes/user/data_provider/user_data_provider.dart';
 import 'package:mynotes/user/repository/user_repository.dart';
 
+import '../storage/localstorage.dart';
+
 
 
 class UserProfile extends StatefulWidget {
@@ -53,8 +55,7 @@ class _UserProfileState extends State<UserProfile> {
                         _address.text = state.user!.address;
                         _department.text = state.user!.department;
             return Container(
-                padding: const EdgeInsets.fromLTRB(100, 0, 100, 0),
-                width: double.infinity,
+ padding: const EdgeInsets.all(10),                width: double.infinity,
                 decoration: const BoxDecoration(),
                 // decoration: const BoxDecoration(
                 //   image: DecorationImage(
@@ -85,58 +86,54 @@ class _UserProfileState extends State<UserProfile> {
                                   child: const Padding(padding: EdgeInsets.all(10.0)),
                                 ),
                    
-                                Container(
-                                  margin: const EdgeInsets.only(
-                                      left: 15.0, right: 15.0, top: 17.0,bottom: 30),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                    OutlinedButton(
-                                    style: OutlinedButton.styleFrom(
-                                      side: const BorderSide(
-                                        width: 0.3,
-                                        
-                                      ),
-                                      // backgroundColor: Colors.blue,
-                                      shape: const RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10))),
-                                    ),
-                                    child: const Text(
-                                      'Log out',
-                                      style: TextStyle( fontSize: 20),
-                                    ),
-                                    onPressed: () async {
-                                  
-                                      context.go('/');
-                                    }),
-                                    OutlinedButton(
-                                    style: OutlinedButton.styleFrom(
-                                      side: const BorderSide(
-                                        width: 0.3,
-                                        
-                                      ),
-                                      // backgroundColor: Colors.blue,
-                                      shape: const RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.all(Radius.circular(10))),
-                                    ),
-                                    child: const Text(
-                                      'Delete Profile',
-                                      style: TextStyle( fontSize: 20),
-                                    ),
-                                    onPressed: () async {
-                                    BlocProvider.of<UserBloc>(context).add(UserDelete(state.user!.id));
+      
+
+
+
+
+
+                                 Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                        
+
+                                    
+                              ElevatedButton(
+  onPressed: ()async {
+      await TokenStorage.delettoken();
+
+     context.go('/');
+  },
+  
+  child: Text('logout'),
+),
+                          ElevatedButton(
+  onPressed: () {
+     
+ BlocProvider.of<UserBloc>(context).add(UserDelete(state.user!.id));
                                     context.go('/');
 
-                   
-                                    })
-                                
-                                  ],),
-                                ),
-                                const Text(
-                                  "username",
-                                  style: TextStyle(
+
+  },
+  
+  child: Text('delete'),
+),
+                                    ],),
+
+
+
+
+
+
+
+
+
+
+
+
+                                 Text(
+                                  '${state.user!.userName}',
+                                  style:const TextStyle(
                                       fontSize: 25, fontStyle: FontStyle.italic),
                                 ),
                                 
@@ -276,27 +273,11 @@ class _UserProfileState extends State<UserProfile> {
                                               return null;
                                             },
                                           )),
-                                             Container(
-                                height: 50,
-                                padding: const EdgeInsets.fromLTRB(80, 0, 80, 0),
-                                margin: const EdgeInsets.only(bottom: 20, top: 15),
-                                child: OutlinedButton(
-                                  style: OutlinedButton.styleFrom(
-                                    side: const BorderSide(
-                                      width: 1,
-                                      
-                                    ),
-                                    // backgroundColor: Colors.blue,
-                                    shape: const RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(25))),
-                                  ),
-                                  child: const Text(
-                                    'Edit filled data',
-                                    style: TextStyle( fontSize: 20),
-                                  ),
-                                  onPressed: () async {
-                                      final address = _address.text;
+                                   
+
+       ElevatedButton(
+                                 onPressed: () {
+                                                final address = _address.text;
                                        final fullName = _full_name.text;
                                        final department = _department.text;
                                        final username = _username.text;
@@ -307,8 +288,15 @@ class _UserProfileState extends State<UserProfile> {
                                        ));
                                      
                                      }
-                                  },
-                                )),         
+      // Respond to button press
+                                              },
+  
+                                     child: Text('Edit data'),
+                                          ),
+
+
+
+         
                                     
                               ])))
                   ]

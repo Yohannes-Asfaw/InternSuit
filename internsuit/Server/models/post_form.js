@@ -23,7 +23,7 @@ const Postformschema = mongoose.Schema({
 })
 
 Postformschema.methods.generateregtoken =function(){
-const token = jwt.sign({_id:this._id,role:this.role},config.get('jwtwebtoken'))
+const token = jwt.sign({_id:this._id,role:this.role},"ngerlkgnlkrn")
 return token
 }
 

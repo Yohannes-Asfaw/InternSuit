@@ -26,7 +26,7 @@ class LoginBloc extends Bloc<LoginEvent,LoginState>{
         emit(CompanyLoginSuccess(company));
       } catch (error) {
         print(error);
-        emit(LoginFilure(error));
+        emit(CompanyLoginFilure(error));
       }
 
   

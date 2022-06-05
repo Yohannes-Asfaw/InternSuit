@@ -51,10 +51,8 @@ class _ApplicationFormState extends State<ApplicationForm> {
   @override
   void dispose() {
     _description.dispose();
-    // _name.dispose();
-    // _department.dispose();
+    
     _cgpa.dispose();
-    // _address.dispose();
     super.dispose();
   }
 

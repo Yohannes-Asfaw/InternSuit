@@ -59,11 +59,11 @@ class App extends StatelessWidget {
    routes: [
      GoRoute(
        path: '/',
-       builder: (context, state) => const CompanyLoginView(),
-     ),
-      GoRoute(
-       path: '/Login',
        builder: (context, state) => const LoginView(),
+     ),
+     GoRoute(
+       path: '/CompanyLogin',
+       builder: (context, state) => const CompanyLoginView(),
      ),
      GoRoute(
        path: '/SignupView',
@@ -133,12 +133,6 @@ void main() {
             BlocProvider<CompanyBloc> (create: (context)=> CompanyBloc(companyRepository: CompanyRepository(CompanyDataProvider())),) , 
             BlocProvider<UserBloc> (create: (context)=> UserBloc(userRepository: UserRepository(UserDataProvider())),)     
    
-  
-
-
-
-
-  
             ],
           
           

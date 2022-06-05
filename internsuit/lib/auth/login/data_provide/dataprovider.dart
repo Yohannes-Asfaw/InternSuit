@@ -10,7 +10,7 @@ import '../../../storage/localstorage.dart';
 class Loginprovider{
     Future<dynamic> login(String username,String password) async {
     final response = await http.post(
-                              Uri.parse('http://10.2.0.0:3000/login/user'),
+                              Uri.parse('http://127.0.0.1:3000/login/user'),
                               headers: <String, String>{
                                 'Content-Type':
                                     'application/json; charset=UTF-8',
@@ -42,7 +42,7 @@ class Loginprovider{
   }
     Future<dynamic> companylogin(String companyname,String password) async {
     final response = await http.post(
-                              Uri.parse('http://10.2.0.0:3000/login/company'),
+                              Uri.parse('http://127.0.0.1:3000/login/company'),
                               headers: <String, String>{
                                 'Content-Type':
                                     'application/json; charset=UTF-8',

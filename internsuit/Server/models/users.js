@@ -41,7 +41,7 @@ const userschema = mongoose.Schema({
 })
 
 userschema.methods.generateregtoken =function(){
-const token = jwt.sign({_id:this._id,role:this.role,full_name:this.full_name},config.get('jwtwebtoken'))
+const token = jwt.sign({_id:this._id,role:this.role,full_name:this.full_name},"ieruoierreglekrgoeij")
 return token
 }
 const User = mongoose.model('User',userschema)
