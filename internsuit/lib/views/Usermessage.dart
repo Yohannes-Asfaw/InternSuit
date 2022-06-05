@@ -18,11 +18,8 @@ class UserMessage extends StatefulWidget {
 }
 
 class _UserMessageState extends State<UserMessage> {
-  
-
   @override
   void initState() {
-
     super.initState();
   }
 
@@ -38,74 +35,75 @@ class _UserMessageState extends State<UserMessage> {
         body: BlocBuilder<AppBloc, AppState>(
           builder: (context, state) {
             print(state);
-           if (state is AppFetchByUserIdSuccess){
-          final characterList=state.apps;
-          
-            return Column(children: [
-              Flexible(
-                  child: ListView.builder(
-                      scrollDirection: Axis.vertical,
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.all(10),
-                      itemCount: characterList.length,
-                      itemBuilder: (context, index) {
-                        return Card(
-                            elevation: 5,
-                            shadowColor: Colors.black,
-                            borderOnForeground: true,
-                            margin: const EdgeInsets.only(top: 10),
-                            child: Column(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(10.0),
-                                  alignment: Alignment.centerLeft,
-                                  child: const Text(
-                                    "Company response",
-                                    style: TextStyle(
-                                        fontSize: 15, color: Colors.teal),
-                                  ),
-                                ),
-                                const Divider(
-                                    indent: 5,
-                                    endIndent: 5,
-                                    thickness: 0.5,
-                                    color: Colors.black),
-                                Container(
-                                  padding: const EdgeInsets.all(5.0),
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    "From : ${characterList[index].company.companyname} company",
-                                    style: const TextStyle(
-                                      fontSize: 15,
+            if (state is AppFetchByUserIdSuccess) {
+              final characterList = state.apps;
+
+              return Column(children: [
+                Flexible(
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(10),
+                        itemCount: characterList.length,
+                        itemBuilder: (context, index) {
+                          return Card(
+                              elevation: 5,
+                              shadowColor: Colors.black,
+                              borderOnForeground: true,
+                              margin: const EdgeInsets.only(top: 10),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(10.0),
+                                    alignment: Alignment.centerLeft,
+                                    child: const Text(
+                                      "Company response",
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.teal),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  padding: const EdgeInsets.all(5.0),
-                                  alignment: Alignment.centerLeft,
-                                  child: Text(
-                                    "Dear : ${characterList[index].user} you Application was to our company ${characterList[index].Seen}",
-                                    style: const TextStyle(
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                ),
-                                if (characterList[index].Seen == "Accepted")
+                                  const Divider(
+                                      indent: 5,
+                                      endIndent: 5,
+                                      thickness: 0.5,
+                                      color: Colors.black),
                                   Container(
                                     padding: const EdgeInsets.all(5.0),
                                     alignment: Alignment.centerLeft,
-                                    child: const Text(
-                                      "come to our office or contact us via email",
-                                      style: TextStyle(
+                                    child: Text(
+                                      "From : ${characterList[index].company.companyname} company",
+                                      style: const TextStyle(
                                         fontSize: 15,
                                       ),
                                     ),
                                   ),
-                              ],
-                            ));
-                      }))
-            ]);
-          }return Center(child: CircularProgressIndicator());
+                                  Container(
+                                    padding: const EdgeInsets.all(5.0),
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "Dear : ${characterList[index].user} you Application was to our company ${characterList[index].Seen}",
+                                      style: const TextStyle(
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                  if (characterList[index].Seen == "Accepted")
+                                    Container(
+                                      padding: const EdgeInsets.all(5.0),
+                                      alignment: Alignment.centerLeft,
+                                      child: const Text(
+                                        "come to our office or contact us via email",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ),
+                                ],
+                              ));
+                        }))
+              ]);
+            }
+            return Center(child: CircularProgressIndicator());
           },
         ));
   }

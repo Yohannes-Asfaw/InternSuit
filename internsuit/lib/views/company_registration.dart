@@ -101,52 +101,6 @@ class _CompanySignupViewstatefullState
         onTap: () {
           FocusScopeNode currentFocus = FocusScope.of(context);
 
-<<<<<<< HEAD
-   
-       
-     return GestureDetector(
-            onTap: () {
-              FocusScopeNode currentFocus = FocusScope.of(context);
-                
-              if (!currentFocus.hasPrimaryFocus) {
-                currentFocus.unfocus();
-              }
-            },
-            child: Container(
-                padding: const EdgeInsets.all(10),
-                width: double.infinity,
-                // decoration: const BoxDecoration(
-                //   image: DecorationImage(
-                //     image: AssetImage('assets/images/phone_10.jpg'),
-                //     fit: BoxFit.cover,
-                //   ),
-                // ),
-                child: Form(
-                    key: _formKey,
-                    child: ListView(children: <Widget>[
-                       BlocConsumer<CompanyBloc, CompanyState>(
-                         listener:(context, state) {
-if (state is CompanyOperationFailure) {
-                              AwesomeDialog(
-                                        context: context,
-                                        dialogType: DialogType.ERROR,
-                                        animType: AnimType.TOPSLIDE,
-                                        title: 'ERROR',
-                                        desc: 'you are already registerd',
-                                        btnOkOnPress: () {},
-                                      ).show();
-                           }
-                             else if (state is CompanyOperationSuccess) {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginView(),));
-                
-                           }
-
-                         },
-                         builder: (context, state) {
-                           return Column(
-                          children: [
-                       Container(
-=======
           if (!currentFocus.hasPrimaryFocus) {
             currentFocus.unfocus();
           }
@@ -154,6 +108,12 @@ if (state is CompanyOperationFailure) {
         child: Container(
             padding: const EdgeInsets.all(10),
             width: double.infinity,
+            // decoration: const BoxDecoration(
+            //   image: DecorationImage(
+            //     image: AssetImage('assets/images/phone_10.jpg'),
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
             child: Form(
                 key: _formKey,
                 child: ListView(children: <Widget>[
@@ -169,12 +129,15 @@ if (state is CompanyOperationFailure) {
                         btnOkOnPress: () {},
                       ).show();
                     } else if (state is CompanyOperationSuccess) {
-                      context.go('/Login');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginView(),
+                          ));
                     }
                   }, builder: (context, state) {
                     return Column(children: [
                       Container(
->>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                           margin: const EdgeInsets.only(
                             bottom: 10,
                           ),
@@ -445,18 +408,6 @@ if (state is CompanyOperationFailure) {
                               final address = _address.text;
 
                               if (_formKey.currentState!.validate()) {
-<<<<<<< HEAD
-                
-                        BlocProvider.of<CompanyBloc>(context).add( CompanyCreate(
-                                  Company(
-            companyname : companyname,
-            password :password,
-            companywebsite : companywebsite,
-            address : address,
-            
-            dedicatedfield : dedicatedfield) ));
-                                  
-=======
                                 BlocProvider.of<CompanyBloc>(context).add(
                                     CompanyCreate(Company(
                                         companyname: companyname,
@@ -464,47 +415,6 @@ if (state is CompanyOperationFailure) {
                                         companywebsite: companywebsite,
                                         address: address,
                                         dedicatedfield: dedicatedfield)));
-
-                                // final response = await http.post(
-                                //   Uri.parse('http://127.0.0.1:3000/reg/company'),
-                                //   headers: <String, String>{
-                                //     'Content-Type':
-                                //         'application/json; charset=UTF-8',
-
-                                //   },
-                                //   body: jsonEncode(<String, String>{
-                                //     'password': password,
-                                //     'company_name': companyname,
-                                //     'Company_website': companywebsite,
-                                //     'dedicated_field': dedicatedfield,
-                                //     'Address': address,
-                                //   }),
-                                // );
-                                // if (response.statusCode == 409) {
-                                //   const snackBar = SnackBar(
-                                //       content: Text('Company already registered'),
-                                //       backgroundColor: Colors.red,
-                                //       duration: Duration(milliseconds: 500));
-                                //   ScaffoldMessenger.of(context)
-                                //       .showSnackBar(snackBar);
-                                // } else if (response.statusCode == 400) {
-                                //   const snackBar = SnackBar(
-                                //       content:
-                                //           Text('Please fill the Dedicated Field'),
-                                //       backgroundColor: Colors.red,
-                                //       duration: Duration(milliseconds: 500));
-                                //   ScaffoldMessenger.of(context)
-                                //       .showSnackBar(snackBar);
-                                // } else if (response.statusCode == 200) {
-                                //   Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => const LoginView()),
-                                //   );
-
-                                //   check = 1;
-                                // }
->>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                               }
                             },
                           )),

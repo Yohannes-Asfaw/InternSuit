@@ -36,115 +36,110 @@ import 'views/reject_or_accept_application.dart';
 import 'views/user_navigation.dart';
 import 'views/user_profile.dart';
 
-
-
-
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
-   @override
+  @override
   Widget build(BuildContext context) {
-     return MaterialApp(
-       home:RepositoryProvider(
-         create: (context)=>AuthenticationRepository(Loginprovider()),
-         child: const CompaniesPost(),
-       )
-     );
-    
-
+    return MaterialApp(
+        home: RepositoryProvider(
+      create: (context) => AuthenticationRepository(Loginprovider()),
+      child: const CompaniesPost(),
+    ));
   }
-  }
-   
- final _router = GoRouter(
-   routes: [
-     GoRoute(
-       path: '/',
-       builder: (context, state) => const LoginView(),
-     ),
-     GoRoute(
-       path: '/CompanyLogin',
-       builder: (context, state) => const CompanyLoginView(),
-     ),
-     GoRoute(
-       path: '/SignupView',
-       builder: (context, state) =>const  SignupView(),
-     ),
-     GoRoute(
-       path: '/CompanySignupView',
-       builder: (context, state) =>const  CompanySignupView(),
-     ),
-     GoRoute(
-       path: '/ApplicationForm',
-       builder: (context, state) =>const ApplicationForm(),
-     ),
-     GoRoute(
-       path: '/companies_post',
-       builder: (context, state) =>const CompaniesPost(),
-     ),
-     GoRoute(
-       path: '/Companymessage',
-       builder: (context, state) =>const  Companymessage(),
-     ),
-     GoRoute(
-       path: '/CompanyNavigation',
-       builder: (context, state) =>const  CompanyNavigation(),
-     ),
-     GoRoute(
-       path: '/SingleCompaniesPost',
-       builder: (context, state) =>const  SingleCompaniesPost(),
-     ),
-     GoRoute(
-       path: '/CompanyProfile',
-       builder: (context, state) =>const  CompanyProfile(),
-     ),
-     GoRoute(
-       path: '/PostForm',
-       builder: (context, state) =>const  PostForm(),
-     ),
-     GoRoute(
-       path: '/ApplicationEvaluation',
-       builder: (context, state) =>const  ApplicationEvaluation(),
-     ),
-     GoRoute(
-       path: '/UserNavigation',
-       builder: (context, state) =>const  UserNavigation(),
-     ),
-     GoRoute(
-       path: '/UserProfile',
-       builder: (context, state) =>const  UserProfile(),
-     ),
-     GoRoute(
-       path: '/UserMessage',
-       builder: (context, state) =>const  UserMessage(),
-     ),
-
-   ],
- );
-
-void main() {
- runApp(
-    MultiBlocProvider(
-          providers: [
-            BlocProvider<PostBloc>(
-              create: (context) =>
-            PostBloc(postRepository: PostRepository(PostDataProvider()))),
-            BlocProvider<LoginBloc> (create: (context)=> LoginBloc(authrepo: AuthenticationRepository(Loginprovider())),)  ,
-            BlocProvider<AppBloc> (create: (context)=> AppBloc(appRepository: AppRepository(AppDataProvider())),)   ,
-            BlocProvider<CompanyBloc> (create: (context)=> CompanyBloc(companyRepository: CompanyRepository(CompanyDataProvider())),) , 
-            BlocProvider<UserBloc> (create: (context)=> UserBloc(userRepository: UserRepository(UserDataProvider())),)     
-   
-            ],
-          
-          
-      
-     child: MaterialApp.router(
-         routeInformationParser: _router.routeInformationParser,
-         routerDelegate: _router.routerDelegate,
-         
-       ),
-   )
- );
 }
 
+final _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const LoginView(),
+    ),
+    GoRoute(
+      path: '/CompanyLogin',
+      builder: (context, state) => const CompanyLoginView(),
+    ),
+    GoRoute(
+      path: '/SignupView',
+      builder: (context, state) => const SignupView(),
+    ),
+    GoRoute(
+      path: '/CompanySignupView',
+      builder: (context, state) => const CompanySignupView(),
+    ),
+    GoRoute(
+      path: '/ApplicationForm',
+      builder: (context, state) => const ApplicationForm(),
+    ),
+    GoRoute(
+      path: '/companies_post',
+      builder: (context, state) => const CompaniesPost(),
+    ),
+    GoRoute(
+      path: '/Companymessage',
+      builder: (context, state) => const Companymessage(),
+    ),
+    GoRoute(
+      path: '/CompanyNavigation',
+      builder: (context, state) => const CompanyNavigation(),
+    ),
+    GoRoute(
+      path: '/SingleCompaniesPost',
+      builder: (context, state) => const SingleCompaniesPost(),
+    ),
+    GoRoute(
+      path: '/CompanyProfile',
+      builder: (context, state) => const CompanyProfile(),
+    ),
+    GoRoute(
+      path: '/PostForm',
+      builder: (context, state) => const PostForm(),
+    ),
+    GoRoute(
+      path: '/ApplicationEvaluation',
+      builder: (context, state) => const ApplicationEvaluation(),
+    ),
+    GoRoute(
+      path: '/UserNavigation',
+      builder: (context, state) => const UserNavigation(),
+    ),
+    GoRoute(
+      path: '/UserProfile',
+      builder: (context, state) => const UserProfile(),
+    ),
+    GoRoute(
+      path: '/UserMessage',
+      builder: (context, state) => const UserMessage(),
+    ),
+  ],
+);
 
-
+void main() {
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider<PostBloc>(
+          create: (context) =>
+              PostBloc(postRepository: PostRepository(PostDataProvider()))),
+      BlocProvider<LoginBloc>(
+        create: (context) =>
+            LoginBloc(authrepo: AuthenticationRepository(Loginprovider())),
+      ),
+      BlocProvider<AppBloc>(
+        create: (context) =>
+            AppBloc(appRepository: AppRepository(AppDataProvider())),
+      ),
+      BlocProvider<CompanyBloc>(
+        create: (context) => CompanyBloc(
+            companyRepository: CompanyRepository(CompanyDataProvider())),
+      ),
+      BlocProvider<UserBloc>(
+        create: (context) =>
+            UserBloc(userRepository: UserRepository(UserDataProvider())),
+      )
+    ],
+    child: MaterialApp.router(
+      routeInformationParser: _router.routeInformationParser,
+      routerDelegate: _router.routerDelegate,
+    ),
+  ));
+}

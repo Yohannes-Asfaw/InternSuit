@@ -20,11 +20,7 @@ class CompanyRepository {
 
 
   Future<void> delete(String companyname) async {
-<<<<<<< HEAD
    await dataProvider.delete(companyname);
-=======
-    dataProvider.delete(companyname);
->>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
   }
   Future<List<Company>> fetchAll() async {
     return dataProvider.fetchAll();

@@ -68,55 +68,55 @@ class _CompanyListState extends State<CompanyList> {
                           padding: const EdgeInsets.all(10),
                           itemCount: characterList.length,
                           itemBuilder: (context, index) {
-                            return  InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-               MaterialPageRoute(
-                builder: (context) {
-                  return const ApplicationEvaluation();
-                },
-              ),
-            );
-          },
-                            child: Card(
-                              
-                                margin: const EdgeInsets.only(top: 10),
-                                child: Column(
-                                  children: [
-                                    // Row(
-                                    //   children: [
-                                    //     Column(children: [
-                                    //       Text(
-                                    //         characterList[index].companywebsite,
-                                    //         style: const TextStyle(
-                                    //             color: Colors.amber,
-                                    //             fontSize: 20),
-                                    //       ),
-                                    //       Text(characterList[index].address),
-                                    //     ])
-                                    //   ],
-                                    // ),
-                                    const Divider(
-                                        indent: 5,
-                                        endIndent: 5,
-                                        thickness: 0.5,
-                                        color: Colors.black),
-                                    Column(children: [
-                                      Container(
-                                        padding: const EdgeInsets.all(10.0),
-                                        alignment: Alignment.centerLeft,
-                                        child: const Text("company website"),
-                                      ),
-                                      Container(
-                                        padding: const EdgeInsets.all(5.0),
-                                        alignment: Alignment.centerLeft,
-                                        child: Text(characterList[index]
-                                            .companywebsite),
-                                      )
-                                    ]),
-                                  ],
-                                )));
+                            return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) {
+                                        return const ApplicationEvaluation();
+                                      },
+                                    ),
+                                  );
+                                },
+                                child: Card(
+                                    margin: const EdgeInsets.only(top: 10),
+                                    child: Column(
+                                      children: [
+                                        // Row(
+                                        //   children: [
+                                        //     Column(children: [
+                                        //       Text(
+                                        //         characterList[index].companywebsite,
+                                        //         style: const TextStyle(
+                                        //             color: Colors.amber,
+                                        //             fontSize: 20),
+                                        //       ),
+                                        //       Text(characterList[index].address),
+                                        //     ])
+                                        //   ],
+                                        // ),
+                                        const Divider(
+                                            indent: 5,
+                                            endIndent: 5,
+                                            thickness: 0.5,
+                                            color: Colors.black),
+                                        Column(children: [
+                                          Container(
+                                            padding: const EdgeInsets.all(10.0),
+                                            alignment: Alignment.centerLeft,
+                                            child:
+                                                const Text("company website"),
+                                          ),
+                                          Container(
+                                            padding: const EdgeInsets.all(5.0),
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(characterList[index]
+                                                .companywebsite),
+                                          )
+                                        ]),
+                                      ],
+                                    )));
                           })))
             ])));
   }

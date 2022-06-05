@@ -3,11 +3,13 @@ import 'package:mynotes/views/companies_post.dart';
 import 'package:mynotes/views/user_profile.dart';
 
 import 'Usermessage.dart';
+
 class UserNavigation extends StatefulWidget {
   const UserNavigation({Key? key}) : super(key: key);
   @override
   State<UserNavigation> createState() => _UserNavigationState();
 }
+
 class _UserNavigationState extends State<UserNavigation> {
   int currentIndex = 0;
 
@@ -16,8 +18,9 @@ class _UserNavigationState extends State<UserNavigation> {
       currentIndex = index;
     });
   }
+
   final List<Widget> _children = [
-     CompaniesPost(),
+    CompaniesPost(),
     const UserMessage(),
     const UserProfile(),
   ];
