@@ -46,60 +46,80 @@ class _ApplicationEvaluationState extends State<ApplicationEvaluation> {
         }, builder: (_, state) {
           if (state is AppgetfromScreenSucccess) {
             return Card(
+                color: Colors.amber[100],
                 margin: const EdgeInsets.only(top: 10),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Column(children: [
-                          Text(
-                            "${state.app.cgpa}",
-                            style: const TextStyle(
-                                color: Colors.amber, fontSize: 20),
-                          ),
-                          Text(state.app.description),
-                        ])
-                      ],
-                    ),
-                    const Divider(
-                        indent: 5,
-                        endIndent: 5,
-                        thickness: 0.5,
-                        color: Colors.black),
-                    Column(children: [
-                      Container(
-                        padding: const EdgeInsets.all(10.0),
-                        alignment: Alignment.centerLeft,
-                        child: const Text("company website"),
+                child: Center(
+                  child: Column(
+                    children: [
+                      Row(
+                
+                        children: [
+                          Column(
+                            children: [
+                            Text(
+                              " Name       :${state.app.user.fullName}",
+                              style: const TextStyle(
+                                  fontSize: 20),
+                            ),
+                            Text(
+                              "Address      :${state.app.user.address}",
+                              style: const TextStyle(
+                                  fontSize: 20),
+                            ),
+                             Text(
+                              "        Department      :${state.app.user.department}",
+                              style: const TextStyle(
+                                  fontSize: 20),
+                            ),
+                             Text(
+                              "   University      :${state.app.user.university}",
+                              style: const TextStyle(
+                                  fontSize: 20),
+                            ),
+                            Text(
+                              " Cgpa      :${state.app.cgpa}",
+
+                              style: const TextStyle(
+                                  fontSize: 20),
+                            ),
+                             Text(
+                              "     Description      :${state.app.description}",
+                              
+                              style: const TextStyle(
+                                  fontSize: 20),
+                            ),
+                          ])
+                        ],
                       ),
-                      Container(
-                        padding: const EdgeInsets.all(5.0),
-                        alignment: Alignment.centerLeft,
-                        child: Text(state.app.Subject),
+                      // const Divider(
+                      //     indent: 5,
+                      //     endIndent: 5,
+                      //     thickness: 0.5,
+                      //     color: Colors.black),
+                     
+                      ButtonBar(
+                        children: [
+                          OutlinedButton(
+                            child: const Text('Accept'),
+                            onPressed: () async {
+                              String acc = "Accepted";
+                              String? id = await TokenStorage.getCompany();
+                              BlocProvider.of<AppBloc>(context)
+                                  .add(AppEvaluation(state.app.Subject, acc));
+                            },
+                          ),
+                          OutlinedButton(
+                            child: const Text('Reject'),
+                            onPressed: () async {
+                              String rej = "Rejected";
+                              BlocProvider.of<AppBloc>(context)
+                                  .add(AppEvaluation(state.app.Subject, rej));
+                            },
+                          )
+                        ],
                       )
-                    ]),
-                    ButtonBar(
-                      children: [
-                        OutlinedButton(
-                          child: const Text('Accept'),
-                          onPressed: () async {
-                            String acc = "Accepted";
-                            String? id = await TokenStorage.getCompany();
-                            BlocProvider.of<AppBloc>(context)
-                                .add(AppEvaluation(state.app.Subject, acc));
-                          },
-                        ),
-                        OutlinedButton(
-                          child: const Text('Reject'),
-                          onPressed: () async {
-                            String rej = "Rejected";
-                            BlocProvider.of<AppBloc>(context)
-                                .add(AppEvaluation(state.app.Subject, rej));
-                          },
-                        )
-                      ],
-                    )
-                  ],
+                    ],
+                  ),
                 ));
           }
           return Center(
