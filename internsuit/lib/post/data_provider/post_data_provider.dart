@@ -81,8 +81,13 @@ class PostDataProvider {
  Future<List<Post>> fetchAll() async {
     final response = await http.get(Uri.parse('http://127.0.0.1:3000/get/posts/'));
     if (response.statusCode == 200) {
+<<<<<<< HEAD
       final postes = jsonDecode(response.body) as List;
       return postes.map((c) => Post.fromJson(c)).toList();
+=======
+      final users = jsonDecode(response.body) as List;
+      return users.map((c) => Post.fromJson(c)).toList();
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
     } else {
       throw Exception("Could not fetch postes");
     }

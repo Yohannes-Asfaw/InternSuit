@@ -14,14 +14,8 @@ class Company {
     required this.dedicatedfield,
   this.password="1",
   });
-  // Company.fromJson(Map json)
-  //     : companyname = json['company_name'],
-  //       companywebsite = json['Company_website'],
-  //       address = json['Address'],
-  //       dedicatedfield = json['dedicated_field'],
-  //       password = json['password']
-  //       ;
 
+<<<<<<< HEAD
   Map<String,Object> toJson() {
     return {
       'company_name': companyname,
@@ -31,6 +25,8 @@ class Company {
       'password':password,
     };
   }
+=======
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
 
    factory Company.fromJson(Map<String, dynamic> json) {
     return Company(

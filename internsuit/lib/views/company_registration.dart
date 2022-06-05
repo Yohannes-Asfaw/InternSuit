@@ -17,7 +17,6 @@ import '../company/data_provider/company_data_provider.dart';
 import '../company/repository/company_repository.dart';
 import '../models/company.dart';
 
-
 void main() {
   runApp(
     const CompanySignupView(),
@@ -98,7 +97,11 @@ class _CompanySignupViewstatefullState
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
 
+<<<<<<< HEAD
    
        
      return GestureDetector(
@@ -143,6 +146,35 @@ if (state is CompanyOperationFailure) {
                            return Column(
                           children: [
                        Container(
+=======
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
+        child: Container(
+            padding: const EdgeInsets.all(10),
+            width: double.infinity,
+            child: Form(
+                key: _formKey,
+                child: ListView(children: <Widget>[
+                  BlocConsumer<CompanyBloc, CompanyState>(
+                      listener: (context, state) {
+                    if (state is CompanyOperationFailure) {
+                      AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.ERROR,
+                        animType: AnimType.TOPSLIDE,
+                        title: 'ERROR',
+                        desc: 'you are already registerd',
+                        btnOkOnPress: () {},
+                      ).show();
+                    } else if (state is CompanyOperationSuccess) {
+                      context.go('/Login');
+                    }
+                  }, builder: (context, state) {
+                    return Column(children: [
+                      Container(
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                           margin: const EdgeInsets.only(
                             bottom: 10,
                           ),
@@ -270,10 +302,12 @@ if (state is CompanyOperationFailure) {
                                   controller: _dedicatedfield,
                                   decoration: const InputDecoration(
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
                                     ),
                                     prefixIcon: Icon(
                                       Icons.location_city,
@@ -299,7 +333,8 @@ if (state is CompanyOperationFailure) {
                                   },
                                   itemBuilder: (BuildContext context) {
                                     return categories
-                                        .map<PopupMenuItem<String>>((String value) {
+                                        .map<PopupMenuItem<String>>(
+                                            (String value) {
                                       return PopupMenuItem(
                                         child: Text(
                                           value,
@@ -399,7 +434,8 @@ if (state is CompanyOperationFailure) {
                             ),
                             child: const Text(
                               'Sign Up',
-                              style: TextStyle(color: Colors.white, fontSize: 20),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
                             ),
                             onPressed: () async {
                               final password = _password.text;
@@ -407,8 +443,9 @@ if (state is CompanyOperationFailure) {
                               final companywebsite = _companywebsite.text;
                               final dedicatedfield = _dedicatedfield.text;
                               final address = _address.text;
-                
+
                               if (_formKey.currentState!.validate()) {
+<<<<<<< HEAD
                 
                         BlocProvider.of<CompanyBloc>(context).add( CompanyCreate(
                                   Company(
@@ -419,6 +456,55 @@ if (state is CompanyOperationFailure) {
             
             dedicatedfield : dedicatedfield) ));
                                   
+=======
+                                BlocProvider.of<CompanyBloc>(context).add(
+                                    CompanyCreate(Company(
+                                        companyname: companyname,
+                                        password: password,
+                                        companywebsite: companywebsite,
+                                        address: address,
+                                        dedicatedfield: dedicatedfield)));
+
+                                // final response = await http.post(
+                                //   Uri.parse('http://127.0.0.1:3000/reg/company'),
+                                //   headers: <String, String>{
+                                //     'Content-Type':
+                                //         'application/json; charset=UTF-8',
+
+                                //   },
+                                //   body: jsonEncode(<String, String>{
+                                //     'password': password,
+                                //     'company_name': companyname,
+                                //     'Company_website': companywebsite,
+                                //     'dedicated_field': dedicatedfield,
+                                //     'Address': address,
+                                //   }),
+                                // );
+                                // if (response.statusCode == 409) {
+                                //   const snackBar = SnackBar(
+                                //       content: Text('Company already registered'),
+                                //       backgroundColor: Colors.red,
+                                //       duration: Duration(milliseconds: 500));
+                                //   ScaffoldMessenger.of(context)
+                                //       .showSnackBar(snackBar);
+                                // } else if (response.statusCode == 400) {
+                                //   const snackBar = SnackBar(
+                                //       content:
+                                //           Text('Please fill the Dedicated Field'),
+                                //       backgroundColor: Colors.red,
+                                //       duration: Duration(milliseconds: 500));
+                                //   ScaffoldMessenger.of(context)
+                                //       .showSnackBar(snackBar);
+                                // } else if (response.statusCode == 200) {
+                                //   Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => const LoginView()),
+                                //   );
+
+                                //   check = 1;
+                                // }
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                               }
                             },
                           )),
@@ -446,14 +532,15 @@ if (state is CompanyOperationFailure) {
                           child: TextButton(
                             child: const Text(
                               'Sign In',
-                              style: TextStyle(color: Colors.white, fontSize: 20),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
                             ),
                             onPressed: () {
                               context.go('/CompanyLogin');
                             },
-                    ))
-           ]);})]))));
-         
-       
+                          ))
+                    ]);
+                  })
+                ]))));
   }
 }

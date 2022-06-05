@@ -20,24 +20,6 @@ class User {
     this.id
   });
 
-  // User.fromJson(Map json)
-  //     : userName = json['user_name'],
-  //       fullName = json['full_name'],
-  //       university = json['university'],
-  //       address = json['Address'],
-  //       Password=json['password'],
-  //       department = json['department'];
-
-  // Map toJson() {
-  //   return {
-  //     'user_name': userName,
-  //     'full_name': fullName,
-  //     'university': university,
-  //     'Address': address,
-  //     'department':department,
-  //     'password':Password,
-  //   };
-  // }
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
         userName : json['user_name'],

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
 import 'dart:convert';
 
 import 'package:awesome_dialog/awesome_dialog.dart';
@@ -26,8 +29,11 @@ import '../company/blocs/company_event.dart';
 import '../post/blocs/post_event.dart';
 import 'company_registration.dart';
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
 // void main() {
 //   runApp(
 //     const LoginView(),
@@ -54,6 +60,7 @@ class CompanyLoginviewstatefull extends StatefulWidget {
   const CompanyLoginviewstatefull({Key? key}) : super(key: key);
 
   @override
+<<<<<<< HEAD
   State<CompanyLoginviewstatefull> createState() => _CompanyLoginviewstatefullState();
 }
 
@@ -64,6 +71,16 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
 
   
 
+=======
+  State<CompanyLoginviewstatefull> createState() =>
+      _CompanyLoginviewstatefullState();
+}
+
+class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
+  late final TextEditingController _companyName;
+  late final TextEditingController _companPassword;
+
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
   final _formKey = GlobalKey<FormState>();
   bool isEmail(String em) {
     String p =
@@ -73,10 +90,19 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
 
     return regExp.hasMatch(em);
   }
+<<<<<<< HEAD
   getcompanyname() async {
     var companyname = await TokenStorage.getCompany();
     
     return companyname;}
+=======
+
+  getcompanyname() async {
+    var companyname = await TokenStorage.getCompany();
+
+    return companyname;
+  }
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
 
   @override
   void initState() {
@@ -88,7 +114,10 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
 
   @override
   void dispose() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
     _companPassword.dispose();
     _companyName.dispose();
     super.dispose();
@@ -103,7 +132,10 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
     // return RepositoryProvider<AuthenticationRepository>(
     //          create: (context) => authRepo,
 
+<<<<<<< HEAD
       
+=======
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
     return GestureDetector(
         onTap: () {
           FocusScopeNode currentFocus = FocusScope.of(context);
@@ -113,15 +145,22 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
           }
         },
         child: Container(
+<<<<<<< HEAD
           
             padding: const EdgeInsets.fromLTRB(40, 0, 50, 40),
             width: double.infinity,
             height: double.infinity,
             decoration: const BoxDecoration(
+=======
+            padding: const EdgeInsets.fromLTRB(40, 0, 50, 40),
+            width: double.infinity,
+            decoration: const BoxDecoration(color: Colors.teal
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                 // image: DecorationImage(
                 //   image: AssetImage('assets/images/phone_5.jpg'),
                 //   fit: BoxFit.cover,
                 // ),
+<<<<<<< HEAD
                 color: Colors.white
                 ),
            
@@ -164,6 +203,46 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                                 topLeft: Radius.circular(100),
                                 topRight: Radius.circular(100),
                                     
+=======
+                ),
+            child: SingleChildScrollView(
+                child: Column(children: <Widget>[
+              BlocConsumer<LoginBloc, LoginState>(listener: ((context, state) {
+                if (state is LoginFilure) {
+                  AwesomeDialog(
+                    context: context,
+                    dialogType: DialogType.ERROR,
+                    animType: AnimType.TOPSLIDE,
+                    title: 'ERROR',
+                    desc: 'invalid companyname or password',
+                    btnOkOnPress: () {},
+                  ).show();
+                }
+                if (state is CompanyLoginSuccess) {
+                  BlocProvider.of<PostBloc>(context)
+                      .add(FetchByCompanyname(state.company.id));
+                  BlocProvider.of<AppBloc>(context)
+                      .add(FetchBycompanyName(state.company.id));
+                  BlocProvider.of<CompanyBloc>(context)
+                      .add(FetchBycompanyname(state.company.id));
+
+                  context.go('/CompanyNavigation');
+                }
+              }), builder: (context, state) {
+                return Form(
+                    key: _formKey,
+                    child: SingleChildScrollView(
+                        child: Column(children: <Widget>[
+                      Container(
+                          margin: const EdgeInsets.only(bottom: 20, top: 20),
+                          decoration: const BoxDecoration(
+                              color: Colors.black38,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(100),
+                                topLeft: Radius.circular(100),
+                                topRight: Radius.circular(100),
+
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                                 // bottomRight: Radius.circular(50))),
                               )),
                           height: 130,
@@ -174,22 +253,33 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                             style: TextStyle(
                                 fontSize: 60,
                                 fontFamily: 'DancingScript',
+<<<<<<< HEAD
                                 ),
                           )),
   
                    
+=======
+                                color: Colors.white),
+                          )),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                       Container(
                           alignment: Alignment.centerLeft,
                           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
                           child: const Text(
                             'Sign in',
+<<<<<<< HEAD
                             style: TextStyle(fontSize: 20,),
                           )),
                    
+=======
+                            style: TextStyle(fontSize: 20, color: Colors.white),
+                          )),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                       Container(
                         padding: const EdgeInsets.all(20),
                         child: TextFormField(
                           controller: _companyName,
+<<<<<<< HEAD
                           style: const TextStyle(),
                           keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
@@ -206,21 +296,47 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                             ),
                             labelText: 'Company Name',
                             labelStyle: TextStyle(),
+=======
+                          style: const TextStyle(color: Colors.white),
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Colors.white,
+                            ),
+                            labelText: 'Company Name',
+                            labelStyle: TextStyle(color: Colors.white),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                             errorStyle: TextStyle(
                               color: Colors.red,
                               fontWeight: FontWeight.w700,
                             ),
                             errorBorder: OutlineInputBorder(
+<<<<<<< HEAD
                                 borderSide: BorderSide(),
                               ),
                               focusedErrorBorder:  OutlineInputBorder(
                                 borderSide: BorderSide(),
                               ),
+=======
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.white),
+                            ),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Company Name is required';
                             }
+<<<<<<< HEAD
                 
                             return null;
                           },
@@ -229,10 +345,22 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                           padding: const EdgeInsets.all(20),
                           child: TextFormField(
                             style: const TextStyle(),
+=======
+
+                            return null;
+                          },
+                        ),
+                      ),
+                      Container(
+                          padding: const EdgeInsets.all(20),
+                          child: TextFormField(
+                            style: const TextStyle(color: Colors.white),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                             controller: _companPassword,
                             obscureText: !_showPassword,
                             decoration: InputDecoration(
                               enabledBorder: const OutlineInputBorder(
+<<<<<<< HEAD
                                 borderSide: BorderSide(),
                               ),
                               focusedBorder: const OutlineInputBorder(
@@ -241,11 +369,22 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                               // border: OutlineInputBorder(),
                               labelText: 'Password',
                               labelStyle: const TextStyle(),
+=======
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              focusedBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              // border: OutlineInputBorder(),
+                              labelText: 'Password',
+                              labelStyle: const TextStyle(color: Colors.white),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                               errorStyle: const TextStyle(
                                 color: Colors.red,
                                 fontWeight: FontWeight.w700,
                               ),
                               errorBorder: const OutlineInputBorder(
+<<<<<<< HEAD
                                 borderSide: BorderSide(),
                               ),
                               focusedErrorBorder:const  OutlineInputBorder(
@@ -256,6 +395,20 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                               suffixIcon: IconButton(
                                   color: _showPassword
                                       ? Colors.black
+=======
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              focusedErrorBorder: const OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              prefixIcon: const Icon(
+                                Icons.lock,
+                                color: Colors.white,
+                              ),
+                              suffixIcon: IconButton(
+                                  color: _showPassword
+                                      ? Colors.white
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                                       : Colors.grey,
                                   icon: Icon(
                                     !_showPassword
@@ -276,6 +429,7 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                               return null;
                             },
                           )),
+<<<<<<< HEAD
                    
                       Align(
                          alignment: Alignment.centerRight,
@@ -317,35 +471,89 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                           const Text(
                             'Does not have account?',
                             style: TextStyle(color: Colors.lightBlue),
+=======
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: Container(
+                              height: 40,
+                              width: 120,
+                              padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+                              child: OutlinedButton(
+                                style: OutlinedButton.styleFrom(
+                                  side: const BorderSide(
+                                      width: 1, color: Colors.white),
+                                  // shape: const RoundedRectangleBorder(
+                                  //     borderRadius: BorderRadius.all(
+                                  //         Radius.circular(15))),
+                                ),
+                                child: const Text(
+                                  'sign in',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 20),
+                                ),
+                                onPressed: () async {
+                                  final password = _companPassword.text;
+                                  final companyname = _companyName.text;
+                                  if (_formKey.currentState!.validate()) {
+                                    BlocProvider.of<LoginBloc>(context).add(
+                                        CompanyAttemptLogin(
+                                            companyname, password));
+                                  }
+                                },
+                              ))),
+                      Row(
+                        children: <Widget>[
+                          const Text(
+                            'Does not have account?',
+                            style: TextStyle(color: Colors.yellow),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                           ),
                           TextButton(
                             child: const Text(
                               'Sign Up',
+<<<<<<< HEAD
                               style: TextStyle(fontSize: 20, ),
                             ),
                             onPressed: () {
                              
                                     Navigator.push(context, MaterialPageRoute(builder: (context) => CompanySignupView(),));
+=======
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            ),
+                            onPressed: () {
+                              context.go('/CompanySignupView');
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                             },
                           )
                         ],
                         mainAxisAlignment: MainAxisAlignment.center,
                       ),
+<<<<<<< HEAD
 
                          Container(
+=======
+                      Container(
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                           height: 50,
                           padding: const EdgeInsets.fromLTRB(65, 0, 65, 0),
                           margin: const EdgeInsets.only(top: 10, bottom: 20),
                           child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
+<<<<<<< HEAD
                               side:
                                   const BorderSide(width: 1, ),
+=======
+                              side: const BorderSide(
+                                  width: 1, color: Colors.white),
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
                               // shape: const RoundedRectangleBorder(
                               //     borderRadius:
                               //         BorderRadius.all(Radius.circular(25))),
                             ),
                             child: const Text(
                               'Signin As User',
+<<<<<<< HEAD
                               style: TextStyle( fontSize: 20),
                             ),
                             onPressed: () {
@@ -367,3 +575,17 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                        }  )])))  
 
 );}}
+=======
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            onPressed: () {
+                              context.go('/Login');
+                            },
+                          )),
+                    ])));
+              })
+            ]))));
+  }
+}
+>>>>>>> 0078f81cf636bfa6dfad38e8fdd4cc87560030c7
