@@ -10,7 +10,7 @@ import '../../../storage/localstorage.dart';
 class Loginprovider{
     Future<dynamic> login(String username,String password) async {
     final response = await http.post(
-                              Uri.parse('http://10.2.0.0:3000/login/user'),
+                              Uri.parse('http://127.0.0.1:3000/login/user'),
                               headers: <String, String>{
                                 'Content-Type':
                                     'application/json; charset=UTF-8',
@@ -26,7 +26,6 @@ class Loginprovider{
       Map<String, dynamic> data = jsonDecode(response.body);
       final String token = data['token'];
       final User user = User.fromJson(data['user']);
-      
       await TokenStorage.saveUserToken(user.id);
      
       
@@ -36,13 +35,12 @@ class Loginprovider{
     }
     else
     {
-     
       throw Exception("Failed to login");
     }
   }
     Future<dynamic> companylogin(String companyname,String password) async {
     final response = await http.post(
-                              Uri.parse('http://10.2.0.0:3000/login/company'),
+                              Uri.parse('http://127.0.0.1:3000/login/company'),
                               headers: <String, String>{
                                 'Content-Type':
                                     'application/json; charset=UTF-8',
@@ -58,7 +56,6 @@ class Loginprovider{
       Map<String, dynamic> data = jsonDecode(response.body);
       final String token = data['token'];
       final Company company = Company.fromJson(data['company']);
-     
       await TokenStorage.saveCompanyToken(token);
      
       return company;
@@ -67,7 +64,6 @@ class Loginprovider{
     }
     else
     {
-      
       throw Exception("Failed to login");
     }
   }
