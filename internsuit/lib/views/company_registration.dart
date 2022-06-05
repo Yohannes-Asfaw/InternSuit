@@ -17,7 +17,6 @@ import '../company/data_provider/company_data_provider.dart';
 import '../company/repository/company_repository.dart';
 import '../models/company.dart';
 
-
 void main() {
   runApp(
     const CompanySignupView(),
@@ -98,51 +97,37 @@ class _CompanySignupViewstatefullState
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+          FocusScopeNode currentFocus = FocusScope.of(context);
 
-   
-       
-     return GestureDetector(
-            onTap: () {
-              FocusScopeNode currentFocus = FocusScope.of(context);
-                
-              if (!currentFocus.hasPrimaryFocus) {
-                currentFocus.unfocus();
-              }
-            },
-            child: Container(
-                padding: const EdgeInsets.all(10),
-                width: double.infinity,
-                // decoration: const BoxDecoration(
-                //   image: DecorationImage(
-                //     image: AssetImage('assets/images/phone_10.jpg'),
-                //     fit: BoxFit.cover,
-                //   ),
-                // ),
-                child: Form(
-                    key: _formKey,
-                    child: ListView(children: <Widget>[
-                       BlocConsumer<CompanyBloc, CompanyState>(
-                         listener:(context, state) {
-if (state is CompanyOperationFailure) {
-                              AwesomeDialog(
-                                        context: context,
-                                        dialogType: DialogType.ERROR,
-                                        animType: AnimType.TOPSLIDE,
-                                        title: 'ERROR',
-                                        desc: 'you are already registerd',
-                                        btnOkOnPress: () {},
-                                      ).show();
-                           }
-                             else if (state is CompanyOperationSuccess) {
-                                        context.go('/Login');
-                
-                           }
-
-                         },
-                         builder: (context, state) {
-                           return Column(
-                          children: [
-                       Container(
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
+        child: Container(
+            padding: const EdgeInsets.all(10),
+            width: double.infinity,
+            child: Form(
+                key: _formKey,
+                child: ListView(children: <Widget>[
+                  BlocConsumer<CompanyBloc, CompanyState>(
+                      listener: (context, state) {
+                    if (state is CompanyOperationFailure) {
+                      AwesomeDialog(
+                        context: context,
+                        dialogType: DialogType.ERROR,
+                        animType: AnimType.TOPSLIDE,
+                        title: 'ERROR',
+                        desc: 'you are already registerd',
+                        btnOkOnPress: () {},
+                      ).show();
+                    } else if (state is CompanyOperationSuccess) {
+                      context.go('/Login');
+                    }
+                  }, builder: (context, state) {
+                    return Column(children: [
+                      Container(
                           margin: const EdgeInsets.only(
                             bottom: 10,
                           ),
@@ -270,10 +255,12 @@ if (state is CompanyOperationFailure) {
                                   controller: _dedicatedfield,
                                   decoration: const InputDecoration(
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: BorderSide(color: Colors.white),
+                                      borderSide:
+                                          BorderSide(color: Colors.white),
                                     ),
                                     prefixIcon: Icon(
                                       Icons.location_city,
@@ -299,7 +286,8 @@ if (state is CompanyOperationFailure) {
                                   },
                                   itemBuilder: (BuildContext context) {
                                     return categories
-                                        .map<PopupMenuItem<String>>((String value) {
+                                        .map<PopupMenuItem<String>>(
+                                            (String value) {
                                       return PopupMenuItem(
                                         child: Text(
                                           value,
@@ -399,7 +387,8 @@ if (state is CompanyOperationFailure) {
                             ),
                             child: const Text(
                               'Sign Up',
-                              style: TextStyle(color: Colors.white, fontSize: 20),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
                             ),
                             onPressed: () async {
                               final password = _password.text;
@@ -407,25 +396,22 @@ if (state is CompanyOperationFailure) {
                               final companywebsite = _companywebsite.text;
                               final dedicatedfield = _dedicatedfield.text;
                               final address = _address.text;
-                
+
                               if (_formKey.currentState!.validate()) {
-                
-                                                     BlocProvider.of<CompanyBloc>(context).add( CompanyCreate(
-                                  Company(
-            companyname : companyname,
-            password :password,
-            companywebsite : companywebsite,
-            address : address,
-            
-            dedicatedfield : dedicatedfield) ));
-                              
-                           
+                                BlocProvider.of<CompanyBloc>(context).add(
+                                    CompanyCreate(Company(
+                                        companyname: companyname,
+                                        password: password,
+                                        companywebsite: companywebsite,
+                                        address: address,
+                                        dedicatedfield: dedicatedfield)));
+
                                 // final response = await http.post(
                                 //   Uri.parse('http://127.0.0.1:3000/reg/company'),
                                 //   headers: <String, String>{
                                 //     'Content-Type':
                                 //         'application/json; charset=UTF-8',
-                                        
+
                                 //   },
                                 //   body: jsonEncode(<String, String>{
                                 //     'password': password,
@@ -456,7 +442,7 @@ if (state is CompanyOperationFailure) {
                                 //     MaterialPageRoute(
                                 //         builder: (context) => const LoginView()),
                                 //   );
-                
+
                                 //   check = 1;
                                 // }
                               }
@@ -486,7 +472,8 @@ if (state is CompanyOperationFailure) {
                           child: TextButton(
                             child: const Text(
                               'Sign In',
-                              style: TextStyle(color: Colors.white, fontSize: 20),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
                             ),
                             onPressed: () {
                               Navigator.push(
@@ -495,9 +482,9 @@ if (state is CompanyOperationFailure) {
                                     builder: (context) => const LoginView()),
                               );
                             },
-                    ))
-           ]);})]))));
-         
-       
+                          ))
+                    ]);
+                  })
+                ]))));
   }
 }
