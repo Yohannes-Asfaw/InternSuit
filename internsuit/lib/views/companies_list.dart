@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mynotes/models/users.dart';
 import 'package:mynotes/repository/companies_repo.dart';
 import 'package:mynotes/repository/user_repo.dart';
@@ -55,13 +56,7 @@ class _CompanyListState extends State<CompanyList> {
               ),
               Flexible(
                   child: Container(
-                      // width: double.infinity,
-                      // decorati  late Future<User> getUser;on: const BoxDecoration(
-                      //   image: DecorationImage(
-                      //     image: AssetImage('assets/images/phone_10.jpg'),
-                      //     fit: BoxFit.cover,
-                      //   ),
-                      // ),
+ 
                       child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
@@ -70,32 +65,13 @@ class _CompanyListState extends State<CompanyList> {
                           itemBuilder: (context, index) {
                             return InkWell(
                                 onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) {
-                                        return const ApplicationEvaluation();
-                                      },
-                                    ),
-                                  );
+                                 context.go('/ApplicationForm');
                                 },
                                 child: Card(
                                     margin: const EdgeInsets.only(top: 10),
                                     child: Column(
                                       children: [
-                                        // Row(
-                                        //   children: [
-                                        //     Column(children: [
-                                        //       Text(
-                                        //         characterList[index].companywebsite,
-                                        //         style: const TextStyle(
-                                        //             color: Colors.amber,
-                                        //             fontSize: 20),
-                                        //       ),
-                                        //       Text(characterList[index].address),
-                                        //     ])
-                                        //   ],
-                                        // ),
+                                     
                                         const Divider(
                                             indent: 5,
                                             endIndent: 5,

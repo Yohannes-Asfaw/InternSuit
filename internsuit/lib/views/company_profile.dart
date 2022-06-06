@@ -152,14 +152,7 @@ class _CompanyProfileState extends State<CompanyProfile> {
                                           style: const TextStyle(
                                               color: Colors.black),
                                           decoration: const InputDecoration(
-                                            // enabledBorder: OutlineInputBorder(
-                                            //   borderSide:
-                                            //       BorderSide(color: Colors.black),
-                                            // // ),
-                                            // focusedBorder: OutlineInputBorder(
-                                            //   borderSide:
-                                            //       BorderSide(color: Colors.black),
-                                            // ),
+                                          
                                             labelText: 'Company Website',
                                             labelStyle: TextStyle(
                                                 color: Colors.black,

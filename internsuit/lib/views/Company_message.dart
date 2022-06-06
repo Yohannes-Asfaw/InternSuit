@@ -26,11 +26,7 @@ class Companymessage extends StatefulWidget {
 class _CompanymessageState extends State<Companymessage> {
   List<Application> characterList = <Application>[];
 
-  // getcompanyname() async {
-  //   var token = await TokenStorage.getCompanyToken('company_token');
-  //   Map<String, dynamic> payload =  Jwt.parseJwt(token.toString());
-  //   String companyname =  payload.values.toList()[2];
-  //   return companyname;}
+
 
   @override
   void initState() {
@@ -40,12 +36,7 @@ class _CompanymessageState extends State<Companymessage> {
 
   @override
   Widget build(BuildContext context) {
-    // getid() async {
-    // var id = await TokenStorage.getCompany();
-    //   BlocProvider.of<AppBloc>(context).add(FetchBycompanyName(id!));
 
-    // }
-    // getid();
 
     final loginBloc = BlocProvider.of<LoginBloc>(context);
 

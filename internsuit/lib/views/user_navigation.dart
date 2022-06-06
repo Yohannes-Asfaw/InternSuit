@@ -34,17 +34,14 @@ class _UserNavigationState extends State<UserNavigation> {
         onTap: onTabTapped,
         items: const [
           BottomNavigationBarItem(
-            //I want to navigate to a new page Library();
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            //I want to navigate to a new page Store();
             icon: Icon(Icons.message),
             label: 'Message',
           ),
           BottomNavigationBarItem(
-            //I want to navigate to a new page Profile();
             icon: Icon(Icons.account_circle),
             label: 'Profile',
           ),

@@ -307,11 +307,7 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => CompanySignupView(),
-                                  ));
+                              context.go('/CompanySignupView');
                             },
                           )
                         ],
@@ -335,11 +331,7 @@ class _CompanyLoginviewstatefullState extends State<CompanyLoginviewstatefull> {
                               style: TextStyle(fontSize: 20),
                             ),
                             onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LoginView(),
-                                  ));
+                             context.go('/');
                             },
                           )),
                     ])));

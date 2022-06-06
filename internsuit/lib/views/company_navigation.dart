@@ -1,6 +1,7 @@
 // ignore_for_file: unnecessary_const
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:mynotes/views/Company_message.dart';
 import 'package:mynotes/views/company_post.dart';
 import 'package:mynotes/views/company_profile.dart';
@@ -40,17 +41,15 @@ class _CompanyNavigationState extends State<CompanyNavigation> {
             onTap: onTabTapped,
             items: const [
               BottomNavigationBarItem(
-                //I want to navigate to a new page Store();
                 icon: Icon(Icons.auto_awesome_mosaic_outlined),
                 label: 'Postes',
               ),
               BottomNavigationBarItem(
-                //I want to navigate to a new page Library();
                 icon: Icon(Icons.account_box),
                 label: 'Profile',
               ),
               BottomNavigationBarItem(
-                //I want to navigate to a new page Store();
+
                 icon: Icon(Icons.message),
                 label: 'Message',
               ),
@@ -60,10 +59,7 @@ class _CompanyNavigationState extends State<CompanyNavigation> {
           icon: const Icon(Icons.add),
           label: const Text('Add a Post'),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const PostForm()),
-            );
+            context.go('/PostForm');
           },
         ));
   }

@@ -151,29 +151,7 @@ class _SingleCompaniesPostState extends State<SingleCompaniesPost> {
                                             0, 0, 10, 0),
                                         child: TextFormField(
                                           controller: _description,
-                                          // decoration: InputDecoration(
-                                          //   errorBorder: OutlineInputBorder(
-                                          //     borderRadius: BorderRadius.circular(20),
-                                          //     borderSide:
-                                          //         const BorderSide(),
-                                          //   ),
-                                          //   focusedErrorBorder: OutlineInputBorder(
-                                          //     borderRadius: BorderRadius.circular(20),
-                                          //     borderSide:
-                                          //         const BorderSide(),
-                                          //   ),
-                                          //   hintText: "Write Decription of your post",
-                                          //   hintStyle: const TextStyle(color: Colors.white24),
-                                          //   enabledBorder: OutlineInputBorder(
-                                          //     borderRadius: BorderRadius.circular(20),
-                                          //     borderSide: const BorderSide(),
-                                          //   ),
-                                          //   focusedBorder: OutlineInputBorder(
-                                          //     borderSide: const BorderSide(),
-                                          //     borderRadius: BorderRadius.circular(23),
-                                          //   ),
-                                          //   // border: OutlineInputBorder(),
-                                          // ),
+                                        
                                           validator: (value) {
                                             if (value == null ||
                                                 value.isEmpty) {

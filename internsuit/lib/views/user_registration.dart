@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' as http;
 import 'package:mynotes/models/users.dart';
 import 'package:mynotes/user/blocs/user_event.dart';
@@ -136,11 +137,7 @@ class _SignupViewstatefullState extends State<SignupViewstatefull> {
                         ).show();
                       }
                       if (state is UserOperationSuccess) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginView(),
-                            ));
+                      context.go('/');
                       }
                     }, builder: (context, state) {
                       return Column(children: [

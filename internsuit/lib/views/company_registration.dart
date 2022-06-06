@@ -129,11 +129,7 @@ class _CompanySignupViewstatefullState
                         btnOkOnPress: () {},
                       ).show();
                     } else if (state is CompanyOperationSuccess) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginView(),
-                          ));
+                      context.go('/');
                     }
                   }, builder: (context, state) {
                     return Column(children: [

@@ -16,14 +16,7 @@ class CompaniesPost extends StatefulWidget {
 }
 
 class _CompaniesPostState extends State<CompaniesPost> {
-  // void getCompaniesfromApi() async {
-  //   PostApi.getPosts().then((response) {
-  //     setState(() {
-  //       Iterable list = json.decode(response.body);
-  //       postList = list.map((model) => Post.fromJson(model)).toList();
-  //     });
-  //   });
-  // }
+
 
   @override
   void initState() {
